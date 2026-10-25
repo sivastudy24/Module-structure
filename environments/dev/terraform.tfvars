@@ -17,3 +17,5 @@ subnets = {
 vm_name = "app01"
 
 vm_size = "Standard_B2s"
+
+#
