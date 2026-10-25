@@ -15,6 +15,10 @@ jobs:
 
     environment: dev
 
+    env:
+      TF_VAR_admin_username: ${{ secrets.TF_VAR_ADMIN_USERNAME }}
+      TF_VAR_admin_password: ${{ secrets.TF_VAR_ADMIN_PASSWORD }}
+
     defaults:
       run:
         working-directory: environments/dev
@@ -35,17 +39,14 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
       - name: Terraform Validate
         run: terraform validate
 
       - name: Terraform Plan
-        env:
-          TF_VAR_admin_username: ${{ secrets.TF_VAR_ADMIN_USERNAME }}
-          TF_VAR_admin_password: ${{ secrets.TF_VAR_ADMIN_PASSWORD }}
         run: terraform plan -var-file=terraform.tfvars -out=tfplan
 
       - name: Terraform Apply
-        env:
-          TF_VAR_admin_username: ${{ secrets.TF_VAR_ADMIN_USERNAME }}
-          TF_VAR_admin_password: ${{ secrets.TF_VAR_ADMIN_PASSWORD }}
         run: terraform apply -auto-approve tfplan
