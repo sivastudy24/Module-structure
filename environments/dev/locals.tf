@@ -14,17 +14,17 @@ locals {
     }
 
     app02 = {
-      vm_size = "Standard_D2s_v5"
+      vm_size = "Standard_B2s"
       subnet  = "app-subnet"
     }
 
     app03 = {
-      vm_size = "Standard_B4ms"
+      vm_size = "Standard_B2s"
       subnet  = "web-subnet"
     }
 
     sql01 = {
-      vm_size = "Standard_D8s_v5"
+      vm_size = "Standard_B2s"
       subnet  = "db-subnet"
     }
   }
