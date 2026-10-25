@@ -43,4 +43,3 @@ module "windows_vm" {
 
   tags = local.common_tags
 }
-##
