@@ -29,14 +29,17 @@ module "windows_vm" {
 
   source = "../../modules/windows-vm"
 
-  vm_name = var.vm_name
+  for_each = local.vms
 
-  vm_size = var.vm_size
+  vm_name = each.key
+  vm_size = each.value.vm_size
 
   location            = module.resource_group.location
   resource_group_name = module.resource_group.name
 
-  subnet_id = module.network.subnet_ids["app-subnet"]
+  subnet_id = module.network.subnet_ids[
+    each.value.subnet
+  ]
 
   admin_username = var.admin_username
   admin_password = var.admin_password

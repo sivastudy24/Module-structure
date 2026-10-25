@@ -17,14 +17,6 @@ variable "subnets" {
   type = map(string)
 }
 
-variable "vm_name" {
-  type = string
-}
-
-variable "vm_size" {
-  type = string
-}
-
 variable "admin_username" {
   type = string
 }

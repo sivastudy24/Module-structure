@@ -6,4 +6,7 @@ locals {
     Project     = "AzureLandingZone"
   }
 
+  vms = {
+
+      }
 }
