@@ -23,15 +23,15 @@ locals {
         }
       }
 
-    web01 = {
-      vm_size = "Standard_B2s"
-      subnet  = "web-subnet"
-    }
+      web01 = {
+        vm_size = "Standard_B2s"
+        subnet  = "web-subnet"
+      }
 
-    db01 = {
-      vm_size = "Standard_B2s"
-      subnet  = "db-subnet"
+      db01 = {
+        vm_size = "Standard_B2s"
+        subnet  = "db-subnet"
+      }
     }
   }
-}
 }

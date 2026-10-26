@@ -31,8 +31,8 @@ module "windows_vm" {
 
   for_each = local.vms
 
-  vm_name  = each.key
-  vm_size  = each.value.vm_size
+  vm_name   = each.key
+  vm_size   = each.value.vm_size
   subnet_id = module.network.subnet_ids[each.value.subnet]
 
   location            = module.resource_group.location
