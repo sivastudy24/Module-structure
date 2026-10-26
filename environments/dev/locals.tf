@@ -7,6 +7,7 @@ locals {
   }
 
   vms = {
+
     app01 = {
       vm_size = "Standard_B2s"
       subnet  = "app-subnet"
@@ -22,16 +23,20 @@ locals {
           lun     = 1
         }
       }
+    }
 
-      web01 = {
-        vm_size = "Standard_B2s"
-        subnet  = "web-subnet"
-      }
+    web01 = {
+      vm_size = "Standard_B2s"
+      subnet  = "web-subnet"
 
-      db01 = {
-        vm_size = "Standard_B2s"
-        subnet  = "db-subnet"
-      }
+      data_disks = {}
+    }
+
+    db01 = {
+      vm_size = "Standard_B2s"
+      subnet  = "db-subnet"
+
+      data_disks = {}
     }
   }
 }
