@@ -31,18 +31,17 @@ module "windows_vm" {
 
   for_each = local.vms
 
-  vm_name = each.key
-  vm_size = each.value.vm_size
+  vm_name  = each.key
+  vm_size  = each.value.vm_size
+  subnet_id = module.network.subnet_ids[each.value.subnet]
 
   location            = module.resource_group.location
   resource_group_name = module.resource_group.name
 
-  subnet_id = module.network.subnet_ids[
-    each.value.subnet
-  ]
-
   admin_username = var.admin_username
   admin_password = var.admin_password
+
+  data_disks = try(each.value.data_disks, {})
 
   tags = local.common_tags
 }

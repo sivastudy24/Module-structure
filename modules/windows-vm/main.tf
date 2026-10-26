@@ -46,3 +46,27 @@ resource "azurerm_windows_virtual_machine" "this" {
   tags = var.tags
 }
 
+resource "azurerm_managed_disk" "data_disk" {
+
+  for_each = var.data_disks
+
+  name                 = "${var.vm_name}-${each.key}"
+  location             = var.location
+  resource_group_name  = var.resource_group_name
+
+  storage_account_type = "Standard_LRS"
+  create_option        = "Empty"
+
+  disk_size_gb = each.value.size_gb
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "data_disk" {
+
+  for_each = var.data_disks
+
+  managed_disk_id    = azurerm_managed_disk.data_disk[each.key].id
+  virtual_machine_id = azurerm_windows_virtual_machine.this.id
+
+  lun     = each.value.lun
+  caching = "ReadWrite"
+}

@@ -1,33 +1,21 @@
-variable "vm_name" {
-  type = string
-}
+variable "vm_name" {}
+variable "location" {}
+variable "resource_group_name" {}
+variable "subnet_id" {}
 
-variable "location" {
-  type = string
-}
-
-variable "resource_group_name" {
-  type = string
-}
-
-variable "subnet_id" {
-  type = string
-}
-
-variable "vm_size" {
-  type = string
-}
-
-variable "admin_username" {
-  type = string
-}
-
-variable "admin_password" {
-  type      = string
-  sensitive = true
-}
+variable "vm_size" {}
+variable "admin_username" {}
+variable "admin_password" {}
 
 variable "tags" {
   type    = map(string)
+  default = {}
+}
+
+variable "data_disks" {
+  type = map(object({
+    size_gb = number
+    lun     = number
+  }))
   default = {}
 }
