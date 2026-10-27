@@ -6,7 +6,7 @@ locals {
     Project     = "AzureLandingZone"
   }
 
- }
+}
 
 
 
