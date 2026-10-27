@@ -5,7 +5,7 @@ locals {
     ManagedBy   = "Terraform"
     Project     = "AzureLandingZone"
   }
-
+  vms = {}
 }
 
 
