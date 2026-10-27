@@ -12,7 +12,7 @@ locals {
       subnet_name    = "subnet-app"
       data_disk_size = 128
       lun            = 0
-      }
+    }
 
     vm02 = {
       vm_size        = "Standard_B2s"
