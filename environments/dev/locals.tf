@@ -5,12 +5,12 @@ locals {
     ManagedBy   = "Terraform"
     Project     = "AzureLandingZone"
   }
-  /*vms = {
-    vm01 = {
+  vms = {
+    /*vm01 = {
       vm_size = "Standard_B2s"
       subnet  = "web-subnet"
-    }
-  }*/
+    }*/
+  }
 }
 
 
