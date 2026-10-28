@@ -6,10 +6,10 @@ locals {
     Project     = "AzureLandingZone"
   }
   vms = {
-    vm01 = {
+    /*vm01 = {
       vm_size = "Standard_B2s"
       subnet  = "web-subnet"
-    }
+    }*/
   }
 }
 
